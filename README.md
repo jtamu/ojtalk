@@ -18,3 +18,10 @@ or
 ```
 ./say "終わりました！"
 ```
+
+## コマンド化
+
+~/.bash_aliases
+```
+alias say='${YOUR_DOCKER_COMPOSE_PATH}/say'
+```
