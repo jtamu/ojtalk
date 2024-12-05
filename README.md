@@ -32,11 +32,11 @@ alias say='${YOUR_DOCKER_COMPOSE_PATH}/say'
 
 ~/.bash_aliases
 ```
-alias trans_ja='trans :ja -b'
+alias trans_ja='${YOUR_DOCKER_COMPOSE_PATH}/trans_ja'
 ```
 
 then
 
 ```
-echo "hello, world!" | trans_ja | ./say
+echo "hello, world!" | trans_ja | say
 ```

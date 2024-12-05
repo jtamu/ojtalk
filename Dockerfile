@@ -11,4 +11,6 @@ RUN wget https://sourceforge.net/projects/mmdagent/files/MMDAgent_Example/MMDAge
     && unzip MMDAgent_Example-1.6.zip MMDAgent_Example-1.6/Voice/* \
     && cp -r MMDAgent_Example-1.6/Voice/mei/ /usr/share/hts-voice
 
+RUN apt install -y translate-shell
+
 WORKDIR /work
