@@ -1,0 +1,16 @@
+#!/bin/bash
+
+exec > /dev/null 2>&1
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+WORK_DIR=${SCRIPT_DIR}/work
+
+TMP_FILE="tmp"
+
+echo $(cat) > ${WORK_DIR}/${TMP_FILE}.txt \
+&& docker container exec ojtalk-ojtalk-1 open_jtalk \
+    -x /var/lib/mecab/dic/open-jtalk/naist-jdic \
+    -m /usr/share/hts-voice/mei/mei_normal.htsvoice \
+    -ow ${TMP_FILE}.wav ./${TMP_FILE}.txt \
+&& aplay ${WORK_DIR}/${TMP_FILE}.wav \
+&& rm ${WORK_DIR}/${TMP_FILE}.wav ${WORK_DIR}/${TMP_FILE}.txt

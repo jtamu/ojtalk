@@ -1,0 +1,10 @@
+version: '3'
+
+services:
+  ojtalk:
+    build: .
+    tty: true
+    volumes:
+      - ./work:/work
+    restart:
+      unless-stopped
