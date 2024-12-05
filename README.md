@@ -3,7 +3,8 @@
 ## インストール
 
 ```
-docker compose up -d
+$ docker compose up -d
+$ sudo chmod a+w work/
 ```
 
 ## 使い方
