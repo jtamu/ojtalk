@@ -25,3 +25,18 @@ $ ./say "終わりました！"
 ```
 alias say='${YOUR_DOCKER_COMPOSE_PATH}/say'
 ```
+
+## 応用編
+
+### 翻訳と組み合わせる
+
+~/.bash_aliases
+```
+alias trans_ja='trans :ja -b'
+```
+
+then
+
+```
+echo "hello, world!" | trans_ja | ./say
+```
