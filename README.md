@@ -11,3 +11,9 @@ docker compose up -d
 ```
 echo "終わりました！" | ./say
 ```
+
+or
+
+```
+./say "終わりました！"
+```
