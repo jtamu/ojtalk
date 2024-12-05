@@ -1,0 +1,14 @@
+#!/bin/bash
+
+if [ -p /dev/stdin ]; then
+    input=$(cat -)
+elif [ $# -ne 0 ]; then
+    input=$(echo $1)
+else
+    echo "パイプか引数を指定してください。"
+    exit 1
+fi
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+${SCRIPT_DIR}/trans_ja ${input} | tee /dev/tty | ${SCRIPT_DIR}/say
