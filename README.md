@@ -38,5 +38,20 @@ alias say_ja='${YOUR_DOCKER_COMPOSE_PATH}/say_ja'
 then
 
 ```
-echo "hello, world!" | say_ja
+$ echo "hello, world!" | say_ja
 ```
+
+### ファイルを監視して読み上げる
+
+~/.bash_aliases
+```
+alias sread='${YOUR_DOCKER_COMPOSE_PATH}/sread'
+```
+
+then
+
+```
+$ sread -f ${YOUR_FILE}
+```
+
+※`-f`オプションがない場合は単にファイルの中身を読み上げて終わります。

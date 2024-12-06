@@ -1,0 +1,44 @@
+#!/bin/bash
+
+SCRIPT_DIR=$(cd $(dirname $0); pwd)
+
+watch=0
+
+while (($# > 0)); do
+    case $1 in
+        -f)
+        watch=1
+        ;;
+        -*)
+        echo "Unknown option: $1" >&2
+        exit 1
+        ;;
+        *)
+        file=$1
+    esac
+    shift
+done
+
+if [ -z ${file} ] || [ ! -e ${file} ]; then
+    echo "ファイルが存在しません"
+    exit 1
+fi
+
+cat ${file} |
+while read line; do
+    echo $line | ${SCRIPT_DIR}/say
+done
+
+if [ $watch = 0 ]; then
+    exit 0
+fi
+
+read_lines=$(cat ${file} | wc -l)
+
+while true; do
+    if [ ${read_lines} -ne $(cat ${file} | wc -l) ]; then
+        read_lines=$(cat ${file} | wc -l)
+        tail -1 ${file} | ${SCRIPT_DIR}/say
+    fi
+    sleep 0.1
+done
