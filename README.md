@@ -45,13 +45,13 @@ $ echo "hello, world!" | say_ja
 
 ~/.bash_aliases
 ```
-alias sread='${YOUR_DOCKER_COMPOSE_PATH}/sread'
+alias read_out='${YOUR_DOCKER_COMPOSE_PATH}/read_out'
 ```
 
 then
 
 ```
-$ sread -f ${YOUR_FILE}
+$ read_out -f ${YOUR_FILE}
 ```
 
 ※`-f`オプションがない場合は単にファイルの中身を読み上げて終わります。
